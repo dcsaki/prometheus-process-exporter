@@ -41,7 +41,7 @@ spec:
 {{ toYaml .Values.extraArgs | indent 12 }}
 {{- end }}
           ports:
-            - name: metrics
+            - name: {{ .Values.service.port_name | default "metrics" }}
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
           livenessProbe:

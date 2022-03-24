@@ -16,7 +16,7 @@ spec:
   endpoints:
   - interval: "{{ .Values.serviceMonitor.interval }}"
     honorLabels: true
-    port: metrics
+    port: {{ .Values.service.port_name | default "metrics" }}
     path: /metrics
     scheme: http
   jobLabel: "{{ .Release.Name }}"
